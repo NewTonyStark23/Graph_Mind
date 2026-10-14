@@ -112,7 +112,7 @@ export default function ModelPanel() {
               </div>
               <div>
                 <h1 className="text-lg font-bold text-slate-100">GRAPHIFY PANEL</h1>
-                <p className="text-xs text-slate-400">Real AI Model Extractor • Safetensors & GGUF Parser • Weight Statistics • Architecture Analysis</p>
+                <p className="text-xs text-slate-400">Real AI Model Extractor • SVD Analysis • Tokenizer Parsing • IndexedDB Cache • 10 Advanced Methods</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
