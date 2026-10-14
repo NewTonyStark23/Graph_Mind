@@ -4,6 +4,7 @@ import { models, categories } from '../data/models';
 import { deepMethods, mergingStrategies } from '../data/deepMethods';
 import ModelDetail from './ModelDetail';
 import GraphifyView from './GraphifyView';
+import FileAnalyzer from './FileAnalyzer';
 
 export default function ModelPanel() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -15,6 +16,7 @@ export default function ModelPanel() {
   const [showDeepMethods, setShowDeepMethods] = useState(false);
   const [showExtractionGuide, setShowExtractionGuide] = useState(false);
   const [showDownloads, setShowDownloads] = useState(false);
+  const [showFileAnalyzer, setShowFileAnalyzer] = useState(false);
   const [downloadedModels, setDownloadedModels] = useState<Set<string>>(new Set());
   const [savedGraphifies, setSavedGraphifies] = useState<Set<string>>(new Set());
 
@@ -110,7 +112,7 @@ export default function ModelPanel() {
               </div>
               <div>
                 <h1 className="text-lg font-bold text-slate-100">GRAPHIFY PANEL</h1>
-                <p className="text-xs text-slate-400">AI Model Weight Extractor & Brain Map Generator • 15 Extraction Methods • Model Merging Ready</p>
+                <p className="text-xs text-slate-400">Real AI Model Extractor • Safetensors & GGUF Parser • Weight Statistics • Architecture Analysis</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -131,6 +133,12 @@ export default function ModelPanel() {
                 className="px-3 py-1.5 bg-green-600/20 border border-green-500/30 rounded-lg text-xs text-green-300 hover:bg-green-600/40 transition-colors"
               >
                 📥 Downloads ({downloadedModels.size})
+              </button>
+              <button
+                onClick={() => setShowFileAnalyzer(true)}
+                className="px-3 py-1.5 bg-blue-600/20 border border-blue-500/30 rounded-lg text-xs text-blue-300 hover:bg-blue-600/40 transition-colors"
+              >
+                🔬 Analyze File
               </button>
               <div className="text-xs text-slate-400 hidden md:block">
                 <span className="text-blue-400 font-mono">{models.length}</span> models indexed
@@ -515,6 +523,10 @@ export default function ModelPanel() {
           onClose={() => setSelectedModel(null)}
           onExportGraphify={handleExportGraphify}
         />
+      )}
+
+      {showFileAnalyzer && (
+        <FileAnalyzer onClose={() => setShowFileAnalyzer(false)} />
       )}
     </div>
   );
