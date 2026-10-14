@@ -1,11 +1,14 @@
 {
-  "name": "sandbox-workspace",
-  "private": true,
+  "name": "graphify-panel",
+  "version": "1.0.0",
+  "description": "AI Model Weight Extractor & Brain Map Generator - Real safetensors/GGUF parser with SVD analysis, tokenizer parsing, and 10 advanced extraction methods",
+  "private": false,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.1.0",
